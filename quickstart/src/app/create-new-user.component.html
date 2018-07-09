@@ -1,0 +1,54 @@
+<h1>Create New User</h1>
+<div>
+    <fieldset>
+        Name: <input [(ngModel)]="customer.name">
+    </fieldset>
+    <br/>
+    <fieldset>
+        ID: <input [(ngModel)]="customer.id" type = "number"> 
+    </fieldset>
+    <br/>
+    <fieldset>
+        Date of Birth: <input [(ngModel)]="customer.DOB" type="date"> 
+    </fieldset> 
+    <br/>
+    <fieldset>
+        SIN: <input [(ngModel)]="customer.SIN" type="number">
+    </fieldset>
+    <br/>
+    <fieldset>
+        <label>Gender: </label>
+        
+        <select [(ngModel)] = "customer.Sex">
+          
+          <option *ngFor = "let sex of sexes"> {{sex}}</option>
+    
+        </select>
+      </fieldset> 
+    
+    <label>Show Address <input type="checkbox" [(ngModel)] = "showAddress"></label>
+    <div *ngIf = "showAddress">
+        <fieldset>
+            <label>Street: <input [(ngModel)] = "customer.address.street"> </label>
+        </fieldset>   
+        <fieldset>
+            <label>City: <input [(ngModel)] = "customer.address.city"> </label>
+        </fieldset> 
+        <fieldset>
+            <label>Region: </label>
+            
+            <select [(ngModel)] = "customer.address.region">          
+                <option *ngFor = "let region of regions"> {{region}}</option>
+            </select>
+        </fieldset>
+        <fieldset>
+            <label>State: </label>
+            
+            <select [(ngModel)] = "customer.address.state">
+                <option *ngFor = "let state of states">{{state}}</option>
+            </select>
+        </fieldset> 
+        <p><i>Address is {{customer.address.street}}, {{customer.address.city}}, {{customer.address.region}}, {{customer.address.state}}</i> </p>
+    </div>
+    <p><i>{{customer.name}} with id {{customer.id}} birthday {{customer.DOB}}, {{customer.Sex}}</i> </p>
+</div>

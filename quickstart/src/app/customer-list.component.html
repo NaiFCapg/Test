@@ -1,0 +1,17 @@
+<h1>Customers</h1>
+<div>
+  <p *ngIf="isBusy"><i>Loading Customers...</i></p>
+  <p *ngIf="!isBusy"><i>select a customer</i></p>
+  <!--list is here-->
+  <!-- if customer === cust, add selected class to he li component-->
+  <ul>
+    <li *ngFor="let cust of customers"
+    [ngClass]="{selected: customer === cust}"    
+    (click)="customer=cust">{{cust.name}}</li>
+  </ul>
+  <div *ngIf="customer">
+    <customer-detail [customer]="customer" (shift)="shift($event)"> </customer-detail>
+    <!--bind customer (created by click to the customer in customer-detail-->
+  </div>
+  
+</div>
