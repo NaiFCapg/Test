@@ -1,0 +1,7 @@
+
+<h1>
+  <button (click)="left()"><<</button> {{customer.name}}
+  <button (click)="right()">>></button>
+</h1>
+<p><i>{{customer.name}} is in the {{customer.address.region}} region of {{customer.address.street}}, {{customer.address.city}}, {{customer.address.state}}</i> </p>
+<address-comp [customer]="customer"></address-comp>
